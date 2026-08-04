@@ -5,11 +5,26 @@
 # generation XPC service, which silently slow-paths/ignores requests
 # from a bare, unsigned, bundle-less binary.
 #
-# Usage: scripts/bundle.sh [release]
+# Usage: scripts/bundle.sh [release] [--install]
+#   release    build with `cargo build --release` instead of the debug profile
+#   --install  copy the finished bundle to /Applications/Sepia.app afterward
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-PROFILE="${1:-debug}"
+PROFILE="debug"
+INSTALL=0
+for arg in "$@"; do
+    case "$arg" in
+        release) PROFILE="release" ;;
+        --install) INSTALL=1 ;;
+        *)
+            echo "Unknown argument: $arg" >&2
+            echo "Usage: scripts/bundle.sh [release] [--install]" >&2
+            exit 1
+            ;;
+    esac
+done
+
 if [ "$PROFILE" = "release" ]; then
     CARGO_FLAGS=(--release)
     BIN_DIR="target/release"
@@ -83,3 +98,12 @@ fi
 codesign --force --deep --sign "$IDENTITY" "$APP"
 
 echo "Built $APP (signed: $IDENTITY)"
+
+if [ "$INSTALL" = "1" ]; then
+    # A running copy at the destination would otherwise make the `cp -R`
+    # below fail/produce a broken bundle (files locked, partial overwrite).
+    pkill -f "/Applications/Sepia.app/Contents/MacOS/sepia" 2>/dev/null || true
+    rm -rf /Applications/Sepia.app
+    cp -R "$APP" /Applications/Sepia.app
+    echo "Installed /Applications/Sepia.app"
+fi
