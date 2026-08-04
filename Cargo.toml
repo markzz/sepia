@@ -1,0 +1,7 @@
+[workspace]
+resolver = "3"
+members = ["core", "platform-macos", "app"]
+
+[workspace.package]
+version = "0.1.0"
+license = "GPL-2.0-only"

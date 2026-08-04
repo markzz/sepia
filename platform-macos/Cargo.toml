@@ -1,0 +1,16 @@
+[package]
+name = "sepia-platform-macos"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+[dependencies]
+block2 = "0.6.2"
+glib = "0.22.8"
+objc2 = "0.6.4"
+objc2-app-kit = { version = "0.3.2", default-features = false, features = ["NSWorkspace", "NSRunningApplication", "NSBitmapImageRep", "NSImage", "NSImageRep", "NSGraphicsContext", "objc2-core-graphics", "NSAppearance", "NSApplication"] }
+objc2-core-foundation = { version = "0.3.2", default-features = false, features = ["CFCGTypes", "std"] }
+objc2-core-graphics = { version = "0.3.2", default-features = false, features = ["CGImage"] }
+objc2-foundation = "0.3.2"
+objc2-quick-look-thumbnailing = { version = "0.3.2", default-features = false, features = ["QLThumbnailGenerator", "QLThumbnailGenerationRequest", "QLThumbnailRepresentation", "std", "block2", "objc2-core-foundation", "objc2-app-kit"] }
+quicklook = "0.2.0"

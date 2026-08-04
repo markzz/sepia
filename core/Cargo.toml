@@ -1,0 +1,8 @@
+[package]
+name = "sepia-core"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+[dependencies]
+notify = "8.2.0"

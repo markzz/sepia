@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C89666"/>
+      <stop offset="100%" stop-color="#6B4423"/>
+    </linearGradient>
+    <linearGradient id="folder" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FBF1E0"/>
+      <stop offset="100%" stop-color="#E8D3AE"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1024" height="1024" rx="224" ry="224" fill="url(#bg)"/>
+
+  <!-- folder tab, peeking above the body -->
+  <rect x="210" y="300" width="280" height="100" rx="24" fill="url(#folder)"/>
+  <!-- folder body -->
+  <rect x="210" y="370" width="604" height="380" rx="32" fill="url(#folder)"/>
+
+  <!-- subtle fold line for depth -->
+  <line x1="242" y1="560" x2="782" y2="560" stroke="#6B4423" stroke-opacity="0.18" stroke-width="6" stroke-linecap="round"/>
+</svg>

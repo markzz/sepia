@@ -1,0 +1,16 @@
+[package]
+name = "sepia"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+[[bin]]
+name = "sepia"
+path = "src/main.rs"
+
+[dependencies]
+chrono = "0.4.45"
+gtk = { version = "0.11.4", package = "gtk4", features = ["v4_22"] }
+objc2 = "0.6.4"
+sepia-core = { path = "../core" }
+sepia-platform-macos = { path = "../platform-macos" }
