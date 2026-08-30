@@ -812,9 +812,9 @@ dependencies = [
 
 [[package]]
 name = "quicklook"
-version = "0.2.0"
+version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dc2f9bb23ff19d19e85b71316abbec1339d148f0c06c333631d3bf6e1c16c12f"
+checksum = "630f5ba5543ff6849bf3cbbdb61b4530267f44210760976f06765f5b8a8dad26"
 dependencies = [
  "objc2",
  "objc2-app-kit",
